@@ -11,7 +11,7 @@ build:
 
 # Run Docker container with volume mount
 up:
-	docker run -it --rm -v $(PWD):/app --name $(CONTAINER_NAME) $(IMAGE_NAME)
+	docker run -it --rm -v $${PWD}:/app --name $(CONTAINER_NAME) $(IMAGE_NAME)
 
 # Run container using docker-compose
 up-compose:
