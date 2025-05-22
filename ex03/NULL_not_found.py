@@ -1,5 +1,6 @@
 def NULL_not_found(object: any) -> int:
-    """Prints the label, value and type of null-like objects. Returns 0 or 1."""
+    """Prints the label, value and type of
+        null-like objects. Returns 0 or 1."""
 
     if object is None:
         print("Nothing:", object, object.__class__)
