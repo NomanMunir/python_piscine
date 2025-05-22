@@ -6,7 +6,7 @@ def NULL_not_found(object: any) -> int:
         return 0
     elif object.__class__ is float and object != object:
         print("Cheese:", object, object.__class__)
-        return 0 
+        return 0
     elif object == 0 and object.__class__ is int:
         print("Zero:", object, object.__class__)
         return 0
