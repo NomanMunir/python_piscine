@@ -25,7 +25,7 @@ down:
 clean:
 	docker rmi -f $(IMAGE_NAME) || true
 
-flake8:
+flake:
 	flake8 ex*/*
 
 # Full clean: image + Python bytecode

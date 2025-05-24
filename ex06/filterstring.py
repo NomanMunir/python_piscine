@@ -14,8 +14,6 @@ Prints the words in the string that are longer than the given int.
         num = int(argv[2])
     except ValueError:
         raise AssertionError("the arguments are bad")
-    except Exception as e:
-        raise AssertionError(f"unexpected error: {type(e).__name__}: {e}")
     words = input_string.split()
     result = ft_filter(lambda x: len(x) > num, words)
     print(list(result))
