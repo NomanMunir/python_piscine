@@ -4,7 +4,10 @@ from ft_filter import ft_filter
 
 
 def main():
-    ''' Main function to filter a string based on a condition.'''
+    """filterstring(string, int) --> print the words longer than int
+
+Prints the words in the string that are longer than the given int.
+"""
     assert len(argv) == 3, "the arguments are bad"
     try:
         input_string = argv[1]
@@ -23,3 +26,5 @@ if __name__ == "__main__":
         main()
     except AssertionError as e:
         print(f"AssertionError: {e}")
+    except Exception as e:
+        print(f"Unexpected error: {type(e).__name__}: {e}")
