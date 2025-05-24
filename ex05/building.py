@@ -4,7 +4,7 @@ from string import punctuation
 
 def main():
     """Counts chars in a given string: upper, lower, digits, spaces,
-        and punctuation."""
+and punctuation."""
     if len(argv) == 1:
         try:
             text = input("What is the text to count?\n")
@@ -27,4 +27,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except AssertionError as e:
+        print(f"AssertionError: {e}")
