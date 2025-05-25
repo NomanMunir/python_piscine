@@ -9,10 +9,8 @@ def all_thing_is_obj(object: any) -> int:
         print("Set : <class 'set'>")
     elif object.__class__ is dict:
         print("Dict : <class 'dict'>")
-    elif object == "Brian":
-        print("Brian is in the kitchen : <class 'str'>")
-    elif object == "Toto":
-        print("Toto is in the kitchen : <class 'str'>")
+    elif object is str
+        print(f"{object} is in the kitchen : <class 'str'>")
     else:
         print("Type not found")
     return 42
