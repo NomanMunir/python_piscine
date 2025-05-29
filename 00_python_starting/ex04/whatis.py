@@ -1,13 +1,13 @@
-from sys import argv
+import sys
 
 
 def main():
-    if len(argv) == 1:
+    if len(sys.argv) == 1:
         return
 
-    assert len(argv) == 2, "more than one argument is provided"
+    assert len(sys.argv) == 2, "more than one argument is provided"
     try:
-        num = int(argv[1])
+        num = int(sys.argv[1])
     except ValueError:
         raise AssertionError("argument is not an integer")
 

@@ -1,6 +1,6 @@
-from sys import argv
+import sys
 
-from ft_filter import ft_filter
+import ft_filter
 
 
 def main():
@@ -8,14 +8,14 @@ def main():
 
 Prints the words in the string that are longer than the given int.
 """
-    assert len(argv) == 3, "the arguments are bad"
+    assert len(sys.argv) == 3, "the arguments are bad"
     try:
-        input_string = argv[1]
-        num = int(argv[2])
+        input_string = sys.argv[1]
+        num = int(sys.argv[2])
     except ValueError:
         raise AssertionError("the arguments are bad")
     words = input_string.split()
-    result = ft_filter(lambda x: len(x) > num, words)
+    result = ft_filter.ft_filter(lambda x: len(x) > num, words)
     print(list(result))
 
 

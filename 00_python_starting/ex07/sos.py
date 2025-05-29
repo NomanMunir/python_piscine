@@ -1,4 +1,4 @@
-from sys import argv
+import sys
 
 NESTED_MORSE = {
     "A": ".-", "B": "-...", "C": "-.-.", "D": "-..", "E": ".",
@@ -17,8 +17,8 @@ def main():
     """sos program - converts a string to Morse code
 Converts the input string to Morse code and prints it.
 """
-    assert len(argv) == 2, "the arguments are bad"
-    input_string = argv[1].upper()
+    assert len(sys.argv) == 2, "the arguments are bad"
+    input_string = sys.argv[1].upper()
     morse_code = []
     for char in input_string:
         if char in NESTED_MORSE:

@@ -9,7 +9,7 @@ def all_thing_is_obj(object: any) -> int:
         print("Set : <class 'set'>")
     elif object.__class__ is dict:
         print("Dict : <class 'dict'>")
-    elif object is str
+    elif object.__class__ is str:
         print(f"{object} is in the kitchen : <class 'str'>")
     else:
         print("Type not found")
