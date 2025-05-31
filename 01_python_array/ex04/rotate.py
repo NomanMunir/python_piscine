@@ -34,6 +34,18 @@ def zoom_image(image: np.ndarray, zoom_size: int = 40) -> np.ndarray:
         return None
 
 
+def manual_transpose(matrix: np.ndarray) -> np.ndarray:
+    """
+    Manually transpose a 2D matrix without using .T or np.transpose().
+    """
+    try:
+        return np.array([[matrix[j][i] for j in range(len(matrix))]
+                        for i in range(len(matrix[0]))])
+    except Exception as e:
+        print(f"An error occurred while transposing the matrix: {e}")
+        return None
+
+
 def display_image(image: np.ndarray):
     """
     Displays a 2D image using matplotlib, if image is not None.
@@ -44,12 +56,12 @@ def display_image(image: np.ndarray):
         return
     try:
         plt.imshow(image, cmap='gray')
-        plt.title("Zoomed Image")
+        plt.title("Rotated Image")
         plt.xlabel("X-axis")
         plt.ylabel("Y-axis")
         plt.axis('on')
         plt.show()
-        plt.savefig("zoomed_image.jpg")
+        plt.savefig("rotated_image.jpg")
     except Exception as e:
         print(f"An error occurred while displaying the image: {e}")
 
@@ -64,13 +76,24 @@ def main():
         if image is None:
             print("Failed to load the image.")
             return
+        cropped_image = zoom_image(image, 500)
+        transposed = manual_transpose(cropped_image)
+        if transposed is None:
+            print("Failed to transpose the image.")
+            return
+        print(f"New shape after Transpose: {transposed.shape}")
+        print(transposed)
 
-        zoomed = zoom_image(image, 3600)
-        if zoomed is not None:
-            display_image(zoomed)
+        display_image(transposed)
+
+    except FileNotFoundError:
+        print("Image file not found.")
+    except ValueError as ve:
+        print(f"ValueError: {ve}")
+    except TypeError as te:
+        print(f"TypeError: {te}")
     except Exception as e:
-        print(f"An error occurred in the main function: {e}")
-        return
+        print(f"Unexpected error: {e}")
 
 
 if __name__ == "__main__":
