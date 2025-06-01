@@ -26,3 +26,5 @@ def ft_load(path: str) -> np.ndarray:
     except Exception as e:
         print(f"Error loading image: {e}")
         return np.array([])
+    except KeyboardInterrupt:
+        pass

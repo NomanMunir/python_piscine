@@ -92,6 +92,8 @@ def main():
         print(f"ValueError: {ve}")
     except TypeError as te:
         print(f"TypeError: {te}")
+    except KeyboardInterrupt:
+        pass
     except Exception as e:
         print(f"Unexpected error: {e}")
 

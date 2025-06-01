@@ -49,7 +49,6 @@ def display_image(image: np.ndarray):
         plt.ylabel("Y-axis")
         plt.axis('on')
         plt.show()
-        plt.savefig("zoomed_image.jpg")
     except Exception as e:
         print(f"An error occurred while displaying the image: {e}")
 
@@ -60,7 +59,7 @@ def main():
     """
 
     try:
-        image = load_image.ft_load('./MainBefore.jpg')
+        image = load_image.ft_load('./landscape.jpeg')
         if image is None:
             print("Failed to load the image.")
             return
@@ -71,10 +70,9 @@ def main():
     except Exception as e:
         print(f"An error occurred in the main function: {e}")
         return
+    except KeyboardInterrupt:
+        return
 
 
 if __name__ == "__main__":
-    try:
-        main()
-    except Exception as e:
-        print(f"An error occurred in the main execution: {e}")
+    main()

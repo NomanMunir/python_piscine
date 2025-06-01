@@ -23,6 +23,8 @@ def ft_load(path: str) -> np.ndarray:
     except OSError:
         print(f"Error: '{path}' is not a valid image file.")
         return None
+    except KeyboardInterrupt:
+        return None
     except Exception as e:
         print(f"Error loading image: {e}")
         return np.array([])
