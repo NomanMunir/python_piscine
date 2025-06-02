@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def zoom_image(image: np.ndarray, zoom_size: int = 40) -> np.ndarray:
+def zoom(image, x_start=450, x_end=850, y_start=100, y_end=500) -> np.ndarray:
     """
     Extracts a centered square of given size from the image.
     Returns only the red channel (grayscale-like) for display.
@@ -15,22 +15,16 @@ def zoom_image(image: np.ndarray, zoom_size: int = 40) -> np.ndarray:
 
         height, width, _ = image.shape
 
-        if zoom_size > min(height, width):
-            raise ValueError("Zoom size too large for the image dimensions.")
+        zoomed_img = image[y_start:y_end, x_start:x_end, 0:1]
+        return zoomed_img
 
-        center_y, center_x = height // 2, width // 2
-        start_y, end_y = center_y - zoom_size // 2, center_y + zoom_size // 2
-        start_x, end_x = center_x - zoom_size // 2, center_x + zoom_size // 2
-
-        zoomed_image = image[start_y:end_y, start_x:end_x, 0]
-        print(f"New shape after slicing: {zoomed_image.shape}")
-        print(zoomed_image)
-        return zoomed_image
     except ValueError as e:
         print(f"Error: {e}")
         return None
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
+        return None
+    except KeyboardInterrupt:
         return None
 
 
@@ -72,15 +66,15 @@ def main():
     """
 
     try:
-        image = load_image.ft_load('./MainBefore.jpg')
+        image = load_image.ft_load('./animal.jpeg')
         if image is None:
-            print("Failed to load the image.")
-            return
-        cropped_image = zoom_image(image, 500)
-        transposed = manual_transpose(cropped_image)
+            raise AssertionError("Failed to load image.")
+        croped = zoom(image)
+        print(f"The shape of image is: {croped.shape}")
+        print(croped)
+        transposed = manual_transpose(croped)
         if transposed is None:
-            print("Failed to transpose the image.")
-            return
+            raise AssertionError("Failed to load image.")
         print(f"New shape after Transpose: {transposed.shape}")
         print(transposed)
 

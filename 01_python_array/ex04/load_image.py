@@ -16,8 +16,6 @@ def ft_load(path: str) -> np.ndarray:
         with PIL.Image.open(path) as img:
             img = img.convert("RGB")
             img_array = np.array(img)
-            print(f"The shape of image is: {img_array.shape}")
-            print(img_array)
             return img_array
 
     except OSError:
