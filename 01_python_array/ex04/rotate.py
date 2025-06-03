@@ -55,7 +55,6 @@ def display_image(image: np.ndarray):
         # plt.ylabel("Y-axis")
         plt.axis('on')
         plt.show()
-        plt.savefig("rotated_image.jpg")
     except Exception as e:
         print(f"An error occurred while displaying the image: {e}")
 
