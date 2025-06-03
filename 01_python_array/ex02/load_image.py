@@ -1,6 +1,6 @@
 import numpy as np
 import PIL.Image
-
+import os
 
 def ft_load(path: str) -> np.ndarray:
     """
@@ -13,6 +13,10 @@ def ft_load(path: str) -> np.ndarray:
         return None
 
     try:
+        if not path.lower().endswith(("jpg", "jpeg")):
+            raise AssertionError("Only JPG and JPEG supported.")
+        if not os.path.exists(path):
+            raise AssertionError("File not found: ", path)
         with PIL.Image.open(path) as img:
             img = img.convert("RGB")
             img_array = np.array(img)

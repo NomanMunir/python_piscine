@@ -30,7 +30,7 @@ def zoom(image, x_start=450, x_end=850, y_start=100, y_end=500) -> np.ndarray:
 
 def display_image(image: np.ndarray):
     """
-    Displays a 2D image using matplotlib, if image is not None.
+    Displays a 2D image with axis using matplotlib, if image is not None.
     """
 
     if image is None:
@@ -38,9 +38,9 @@ def display_image(image: np.ndarray):
         return
     try:
         plt.imshow(image, cmap='gray')
-        plt.title("Zoomed Image")
-        plt.xlabel("X-axis")
-        plt.ylabel("Y-axis")
+        # plt.title("Zoomed Image")
+        # plt.xlabel("X-axis")
+        # plt.ylabel("Y-axis")
         plt.axis('on')
         plt.show()
     except Exception as e:
@@ -53,7 +53,7 @@ def main():
     """
 
     try:
-        image = load_image.ft_load('./animal.jpeg')
+        image = load_image.ft_load('animal.jpeg')
         if image is None:
             print("Failed to load the image.")
             return
@@ -65,8 +65,6 @@ def main():
             display_image(zoomed)
     except Exception as e:
         print(f"An error occurred in the main function: {e}")
-        return
-    except KeyboardInterrupt:
         return
 
 

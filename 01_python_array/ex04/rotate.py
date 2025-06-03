@@ -50,9 +50,9 @@ def display_image(image: np.ndarray):
         return
     try:
         plt.imshow(image, cmap='gray')
-        plt.title("Rotated Image")
-        plt.xlabel("X-axis")
-        plt.ylabel("Y-axis")
+        # plt.title("Rotated Image")
+        # plt.xlabel("X-axis")
+        # plt.ylabel("Y-axis")
         plt.axis('on')
         plt.show()
         plt.savefig("rotated_image.jpg")
@@ -66,7 +66,7 @@ def main():
     """
 
     try:
-        image = load_image.ft_load('./animal.jpeg')
+        image = load_image.ft_load('animal.jpeg')
         if image is None:
             raise AssertionError("Failed to load image.")
         croped = zoom(image)
