@@ -2,5 +2,11 @@
     "python.linting.flake8Enabled": true,
     "python.formatting.provider": "autopep8",
     "editor.formatOnSave": true,
-    "github.copilot.enable": true,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false,
+        "makefile": true
+    },
 }

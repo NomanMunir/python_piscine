@@ -1,10 +1,9 @@
 flake:
-	$(MAKE) -C 0-python flake
-	$(MAKE) -C 01-python flake
+	@flake8 ex*/*
 
 fclean: clean
 	find . -type d -name "__pycache__" -exec rm -r {} + || true
 	find . -type f -name "*.pyc" -delete || true
-	find . -type f -name ".DS_Store" -delete || true
+
 
 re: fclean all
