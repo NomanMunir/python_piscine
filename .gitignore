@@ -1,6 +1,7 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 */*__pycache__/
+*/*/*__pycache__/
 *.py[cod]
 *$py.class
 
@@ -177,3 +178,45 @@ cython_debug/
 
 # VS Code settings
 .vscode/
+
+# Data Science / Pandas specific
+*.pkl
+*.pickle
+*.h5
+*.hdf5
+*.parquet
+
+# Matplotlib cache
+.matplotlib/
+
+# Large data files (uncomment if you have large datasets)
+# *.csv
+# *.json
+# *.xlsx
+# *.zip
+# *.tar.gz
+
+# Image files generated during analysis (uncomment if needed)
+# *.png
+# *.jpg
+# *.jpeg
+# *.gif
+# *.svg
+
+# Temporary files
+*.tmp
+*.temp
+*~
+.#*
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Pre-commit hooks cache
+.pre-commit-config.yaml
