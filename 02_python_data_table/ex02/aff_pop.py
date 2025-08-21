@@ -1,21 +1,37 @@
-
 from load_csv import load
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
 
 
 def convert_population(value):
     """
-    Convert population string (e.g., '3.28M') to numeric value.
+    Convert population string to numeric value.
+
+    Handles different suffixes:
+    - 'k' or 'K' = thousands (multiply by 1,000)
+    - 'M' = millions (multiply by 1,000,000)
+    - 'B' = billions (multiply by 1,000,000,000)
 
     Args:
-        value: Population value as string with 'M' suffix
+        value: Population value as string with suffix
 
     Returns:
         float: Population as numeric value in millions
     """
-    if isinstance(value, str) and value.endswith('M'):
-        return float(value[:-1])
+    if isinstance(value, str):
+        value = value.strip()  # Remove any whitespace
+
+        if value.endswith('k') or value.endswith('K'):
+            return float(value[:-1]) / 1000
+        elif value.endswith('M') or value.endswith('m'):
+            return float(value[:-1])
+        elif value.endswith('B') or value.endswith('b'):
+            return float(value[:-1]) * 1000
+        else:
+            # Plain number - convert actual population to millions
+            return float(value) / 1000000
+
     return float(value)
 
 
@@ -58,16 +74,25 @@ def show_population_comparison(df: pd.DataFrame | None,
     pop1_filtered = [convert_population(pop1_raw[i]) for i in year_indices]
     pop2_filtered = [convert_population(pop2_raw[i]) for i in year_indices]
 
+    plt.figure(figsize=(12, 6))
     plt.plot(years_filtered.tolist(), pop1_filtered,
-             linewidth=2, label=country1, color='green')
+             linewidth=2, label=country1, color='blue')
     plt.plot(years_filtered.tolist(), pop2_filtered,
-             linewidth=2, label=country2, color='blue')
+             linewidth=2, label=country2, color='green')
 
     plt.title("Population Projections")
     plt.xlabel("Year")
     plt.ylabel("Population")
 
-    plt.legend()
+    def format_millions(x, pos):
+        """Format function to add 'M' suffix to y-axis labels"""
+        if x == 0:
+            return '0'
+        return f'{x:.0f}M'
+
+    plt.gca().yaxis.set_major_formatter(ticker.FuncFormatter(format_millions))
+
+    plt.legend(loc='lower right')
     plt.tight_layout()
     plt.show()
 
@@ -79,9 +104,7 @@ def main():
     try:
         df = load("../population_total.csv")
         if df is not None:
-            # print(f"Loaded dataset with shape: {df.shape}")
-            # print("Sample countries:", df['country'].head().tolist())
-            show_population_comparison(df, "Belgium", "France")
+            show_population_comparison(df, "Belgium", "Andorra")
         else:
             print("Failed to load data")
 
