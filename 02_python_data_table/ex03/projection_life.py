@@ -51,7 +51,6 @@ def create_scatter_plot(life_df: pd.DataFrame, income_df: pd.DataFrame,
     plt.gca().set_xticks([300, 1000, 10000])
     plt.gca().set_xticklabels(['300', '1k', '10k'])
 
-    plt.grid(True, alpha=0.3)
     plt.tight_layout()
     plt.show()
 
