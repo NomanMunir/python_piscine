@@ -7,6 +7,7 @@
         "plaintext": false,
         "markdown": false,
         "scminput": false,
-        "makefile": true
+        "makefile": true,
+        "python": false
     },
 }
