@@ -13,12 +13,7 @@ def load(path: str) -> pd.DataFrame | None:
     """
     try:
         df = pd.read_csv(path)
-        print(f"Loading dataset of dimensions {df.shape}")
         return df
-    except KeyboardInterrupt:
-        return None
-    except EOFError:
-        return None
     except Exception as e:
         print(f"Error loading CSV: {e}")
         return None

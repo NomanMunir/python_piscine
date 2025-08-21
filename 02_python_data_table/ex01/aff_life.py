@@ -32,10 +32,9 @@ def show_graph(df: pd.DataFrame | None, country: str):
     plt.plot(years.tolist(), life_expectancy.tolist(),
              linewidth=2, color='blue')
 
-    plt.title(f"Life Expectancy in {country}")
+    plt.title(f"{country} Life Expectancy Projections")
     plt.xlabel("Year")
-    plt.ylabel("Life Expectancy (years)")
-    plt.grid(True, alpha=0.3)
+    plt.ylabel("Life expectancy")
     plt.tight_layout()
     plt.show()
 
@@ -51,6 +50,10 @@ def main():
         else:
             print("Failed to load data")
 
+    except KeyboardInterrupt:
+        pass
+    except EOFError:
+        pass
     except Exception as e:
         print(f"Error: {e}")
 
