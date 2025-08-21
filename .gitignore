@@ -178,6 +178,7 @@ cython_debug/
 
 # VS Code settings
 .vscode/
+.vscode/settings.json
 
 # Data Science / Pandas specific
 *.pkl
