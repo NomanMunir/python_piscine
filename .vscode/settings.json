@@ -8,7 +8,7 @@
         "markdown": false,
         "scminput": false,
         "makefile": true,
-        "python": false
+        "python": true
     },
     "python-envs.pythonProjects": [],
 }
