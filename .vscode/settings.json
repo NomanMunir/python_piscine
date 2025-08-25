@@ -10,4 +10,5 @@
         "makefile": true,
         "python": false
     },
+    "python-envs.pythonProjects": [],
 }
