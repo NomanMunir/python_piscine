@@ -2,8 +2,8 @@ from typing import Any
 
 
 def ft_statistics(*args: Any, **kwargs: Any) -> None:
-    """
-    Calculate statistics (mean, median, quartile, std, var) for given numbers.
+    """Calculate statistics (mean, median, quartile, std, var) for given
+    numbers.
 
     Args:
         *args: Variable number of numeric arguments
@@ -73,19 +73,22 @@ def ft_statistics(*args: Any, **kwargs: Any) -> None:
 def main():
     """Main function for testing."""
     # Test cases from the requirements
-    ft_statistics(1, 42, 360, 11, 64, toto="mean",
-                  tutu="median", tata="quartile")
+    ft_statistics(
+        1, 42, 360, 11, 64, toto="mean", tutu="median", tata="quartile"
+    )
     print("-----")
     ft_statistics(5, 75, 450, 18, 597, 27474, 48575, hello="std", world="var")
     print("-----")
-    ft_statistics(5, 75, 450, 18, 597, 27474, 48575,
-                  ejfhhe="heheh", ejdjdejn="kdekem")
+    ft_statistics(
+        5, 75, 450, 18, 597, 27474, 48575, ejfhhe="heheh", ejdjdejn="kdekem"
+    )
     print("-----")
     ft_statistics(toto="mean", tutu="median", tata="quartile")
     print("-----")
     # Test with invalid data (string)
-    ft_statistics(1, 42, 360, "a11", 64, toto="mean",
-                  tutu="median", tata="quartile")
+    ft_statistics(
+        1, 42, 360, "a11", 64, toto="mean", tutu="median", tata="quartile"
+    )
 
 
 if __name__ == "__main__":

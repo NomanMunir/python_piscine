@@ -2,8 +2,7 @@ import numpy as np
 
 
 def slice_me(family: list, start: int, end: int) -> list:
-    """
-    Slices a 2D list using NumPy and prints original and new shapes.
+    """Slices a 2D list using NumPy and prints original and new shapes.
 
     Parameters:
     - family: a 2D list of equal-length rows
@@ -15,9 +14,8 @@ def slice_me(family: list, start: int, end: int) -> list:
     """
     try:
 
-        if (
-            not isinstance(family, list) or
-            not all(isinstance(row, list) for row in family)
+        if not isinstance(family, list) or not all(
+            isinstance(row, list) for row in family
         ):
             raise ValueError("Input must be a 2D list array.")
 

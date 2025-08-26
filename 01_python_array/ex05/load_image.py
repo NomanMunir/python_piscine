@@ -3,8 +3,8 @@ import PIL.Image
 
 
 def ft_load(path: str) -> np.ndarray:
-    """
-    Loads an image file and returns its RGB pixel data as a NumPy array.
+    """Loads an image file and returns its RGB pixel data as a NumPy array.
+
     Prints the shape and the content.
     """
 

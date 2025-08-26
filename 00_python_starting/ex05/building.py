@@ -4,7 +4,7 @@ import string
 
 def main():
     """Counts chars in a given string: upper, lower, digits, spaces,
-and punctuation."""
+    and punctuation."""
     if len(sys.argv) == 1:
         try:
             text = input("What is the text to count?\n")

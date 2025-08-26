@@ -3,18 +3,16 @@ import matplotlib.pyplot as plt
 
 
 def show_image(image: np.ndarray, title: str):
-    """
-    Display Image on the screen.
-    """
+    """Display Image on the screen."""
     plt.imshow(image)
     plt.title(title)
-    plt.axis('off')
+    plt.axis("off")
     plt.show()
 
 
 def ft_invert(array: np.ndarray) -> np.ndarray:
-    """
-    Inverts the color of the image.
+    """Inverts the color of the image.
+
     Each RGB value becomes 255 - value.
     """
     try:
@@ -28,18 +26,20 @@ def ft_invert(array: np.ndarray) -> np.ndarray:
 
 
 def ft_red(array: np.ndarray) -> np.ndarray:
-    """
-    Keeps only the red channel.
+    """Keeps only the red channel.
+
     Allowed operators: =, *
     """
 
     try:
         red_channel = array[:, :, 0]
         image = np.stack(
-            [red_channel,
+            [
+                red_channel,
                 np.zeros_like(red_channel),
-                np.zeros_like(red_channel)],
-            axis=2
+                np.zeros_like(red_channel),
+            ],
+            axis=2,
         )
 
         show_image(image, "Red")
@@ -51,8 +51,8 @@ def ft_red(array: np.ndarray) -> np.ndarray:
 
 
 def ft_green(array: np.ndarray) -> np.ndarray:
-    """
-    Keeps only the green channel.
+    """Keeps only the green channel.
+
     Allowed operators: =, -
     """
 
@@ -69,8 +69,8 @@ def ft_green(array: np.ndarray) -> np.ndarray:
 
 
 def ft_blue(array: np.ndarray) -> np.ndarray:
-    """
-    Keeps only the blue channel.
+    """Keeps only the blue channel.
+
     Allowed operators: =
     """
 
@@ -87,17 +87,15 @@ def ft_blue(array: np.ndarray) -> np.ndarray:
 
 
 def ft_grey(array: np.ndarray) -> np.ndarray:
-    """
-    Converts RGB to grayscale using only = and / operators.
-    """
+    """Converts RGB to grayscale using only = and / operators."""
     try:
         grey = (array[:, :, 0] / 3) + (array[:, :, 1] / 3)
-        + (array[:, :, 2] / 3)
+        +(array[:, :, 2] / 3)
         grey = grey.astype(np.uint8)
 
-        plt.imshow(grey, cmap='gray')
+        plt.imshow(grey, cmap="gray")
         plt.title("Grey")
-        plt.axis('off')
+        plt.axis("off")
         plt.show()
         return grey
     except Exception as e:

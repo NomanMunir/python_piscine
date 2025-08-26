@@ -1,11 +1,13 @@
 [project]
 name = "python-piscine"
 version = "0.1.0"
-description = "Add your description here"
+description = "Python modules"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "autopep8>=2.3.2",
+    "black>=25.1.0",
+    "docformatter>=1.7.7",
     "pandas>=2.2.3",
     "status>=0.2.5",
 ]
@@ -18,3 +20,25 @@ dev = [
     "pre-commit>=4.3.0",
     "matplotlib>=3.10.5",
 ]
+
+[tool.black]
+line-length = 79
+target-version = ['py310']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.flake8]
+max-line-length = 79
+extend-ignore = ["E203", "W503"]

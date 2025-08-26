@@ -1,6 +1,5 @@
 def callLimit(limit: int):
-    """
-    Decorator that limits the number of times a function can be called.
+    """Decorator that limits the number of times a function can be called.
 
     Args:
         limit: Maximum number of times the function can be called
@@ -11,8 +10,7 @@ def callLimit(limit: int):
     count = 0
 
     def callLimiter(function):
-        """
-        Inner decorator that wraps the actual function.
+        """Inner decorator that wraps the actual function.
 
         Args:
             function: The function to be limited
@@ -22,8 +20,7 @@ def callLimit(limit: int):
         """
 
         def limit_function(*args, **kwargs):
-            """
-            Wrapper function that enforces the call limit.
+            """Wrapper function that enforces the call limit.
 
             Args:
                 *args: Positional arguments for the wrapped function
@@ -38,8 +35,11 @@ def callLimit(limit: int):
                 count += 1
                 return function(*args, **kwargs)
             else:
+                func_name = function.__name__
+                func_id = hex(id(function))
                 print(
-                    f"Error: <function {function.__name__} at {hex(id(function))}> call too many times"
+                    f"Error: <function {func_name} at {func_id}> "
+                    f"call too many times"
                 )
                 return None
 

@@ -2,12 +2,12 @@ import numpy as np
 import PIL.Image
 import os
 
+
 def ft_load(path: str) -> np.ndarray:
-    """
-    Loads an image file and returns its RGB pixel data as a NumPy array.
+    """Loads an image file and returns its RGB pixel data as a NumPy array.
+
     Prints the shape and the content.
     """
-
 
     try:
         if not isinstance(path, str):

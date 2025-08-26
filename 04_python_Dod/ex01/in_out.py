@@ -1,6 +1,5 @@
 def square(x: int | float) -> int | float:
-    """
-    Return the square of the argument.
+    """Return the square of the argument.
 
     Args:
         x: Number to square
@@ -30,8 +29,7 @@ def square(x: int | float) -> int | float:
 
 
 def pow(x: int | float) -> int | float:
-    """
-    Return x raised to the power of itself.
+    """Return x raised to the power of itself.
 
     Args:
         x: Number to raise to its own power
@@ -41,7 +39,8 @@ def pow(x: int | float) -> int | float:
 
     Raises:
         TypeError: If x is not a number
-        ValueError: If operation is invalid (e.g., negative base with non-integer exponent)
+        ValueError: If operation is invalid
+            (e.g., negative base with non-integer exponent)
         OverflowError: If result is too large
     """
     try:
@@ -71,8 +70,7 @@ def pow(x: int | float) -> int | float:
 
 
 def outer(x: int | float, function) -> object:
-    """
-    Create a closure that applies a function to x repeatedly.
+    """Create a closure that applies a function to x repeatedly.
 
     Args:
         x: Initial value
@@ -86,13 +84,14 @@ def outer(x: int | float, function) -> object:
             raise TypeError(f"x must be int or float, got {type(x).__name__}")
 
         if not callable(function):
-            raise TypeError(f"function must be callable, got {type(function).__name__}")
+            raise TypeError(
+                f"function must be callable, got {type(function).__name__}"
+            )
 
         count = 0
 
         def inner() -> float:
-            """
-            Inner function that applies the outer function to x.
+            """Inner function that applies the outer function to x.
 
             Returns:
                 Result of applying function to current x value
@@ -115,7 +114,12 @@ def outer(x: int | float, function) -> object:
 
                 return x
 
-            except (TypeError, ValueError, OverflowError, ZeroDivisionError) as e:
+            except (
+                TypeError,
+                ValueError,
+                OverflowError,
+                ZeroDivisionError,
+            ) as e:
                 print(f"Error in inner function: {e}")
                 return None
             except Exception as e:

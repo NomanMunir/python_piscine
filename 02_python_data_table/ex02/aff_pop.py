@@ -5,8 +5,7 @@ import matplotlib.ticker as ticker
 
 
 def convert_population(value):
-    """
-    Convert population string to numeric value.
+    """Convert population string to numeric value.
 
     Handles different suffixes:
     - 'k' or 'K' = thousands (multiply by 1,000)
@@ -22,11 +21,11 @@ def convert_population(value):
     if isinstance(value, str):
         value = value.strip()  # Remove any whitespace
 
-        if value.endswith('k') or value.endswith('K'):
+        if value.endswith("k") or value.endswith("K"):
             return float(value[:-1]) / 1000
-        elif value.endswith('M') or value.endswith('m'):
+        elif value.endswith("M") or value.endswith("m"):
             return float(value[:-1])
-        elif value.endswith('B') or value.endswith('b'):
+        elif value.endswith("B") or value.endswith("b"):
             return float(value[:-1]) * 1000
         else:
             # Plain number - convert actual population to millions
@@ -35,10 +34,10 @@ def convert_population(value):
     return float(value)
 
 
-def show_population_comparison(df: pd.DataFrame | None,
-                               country1: str, country2: str):
-    """
-    Display a comparison graph of population over time for two countries.
+def show_population_comparison(
+    df: pd.DataFrame | None, country1: str, country2: str
+):
+    """Display a comparison graph of population over time for two countries.
 
     Args:
         df: DataFrame with country data (first column) and years (columns)
@@ -52,8 +51,8 @@ def show_population_comparison(df: pd.DataFrame | None,
         print("No data to display")
         return
 
-    country1_row = df[df['country'] == country1]
-    country2_row = df[df['country'] == country2]
+    country1_row = df[df["country"] == country1]
+    country2_row = df[df["country"] == country2]
 
     if country1_row.empty:
         print(f"Country '{country1}' not found in the dataset")
@@ -75,32 +74,41 @@ def show_population_comparison(df: pd.DataFrame | None,
     pop2_filtered = [convert_population(pop2_raw[i]) for i in year_indices]
 
     plt.figure(figsize=(12, 6))
-    plt.plot(years_filtered.tolist(), pop1_filtered,
-             linewidth=2, label=country1, color='blue')
-    plt.plot(years_filtered.tolist(), pop2_filtered,
-             linewidth=2, label=country2, color='green')
+    plt.plot(
+        years_filtered.tolist(),
+        pop1_filtered,
+        linewidth=2,
+        label=country1,
+        color="blue",
+    )
+    plt.plot(
+        years_filtered.tolist(),
+        pop2_filtered,
+        linewidth=2,
+        label=country2,
+        color="green",
+    )
 
     plt.title("Population Projections")
     plt.xlabel("Year")
     plt.ylabel("Population")
 
     def format_millions(x, pos):
-        """Format function to add 'M' suffix to y-axis labels"""
+        """Format function to add 'M' suffix to y-axis labels."""
         if x == 0:
-            return '0'
-        return f'{x:.0f}M'
+            return "0"
+        return f"{x:.0f}M"
 
     plt.gca().yaxis.set_major_formatter(ticker.FuncFormatter(format_millions))
 
-    plt.legend(loc='lower right')
+    plt.legend(loc="lower right")
     plt.tight_layout()
     plt.show()
 
 
 def main():
-    """
-    Load population data and display comparison graph for Belgium and France.
-    """
+    """Load population data and display comparison graph for Belgium and
+    France."""
     try:
         df = load("../population_total.csv")
         if df is not None:

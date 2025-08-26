@@ -2,8 +2,7 @@ import pandas as pd
 
 
 def load(path: str) -> pd.DataFrame | None:
-    """
-    Load a CSV file and return a pandas DataFrame.
+    """Load a CSV file and return a pandas DataFrame.
 
     Args:
         path (str): Path to the CSV file to load

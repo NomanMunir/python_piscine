@@ -9,8 +9,7 @@ def generate_id() -> str:
 
 @dataclass
 class Student:
-    """
-    Student dataclass with auto-generated login and id.
+    """Student dataclass with auto-generated login and id.
 
     Args:
         name: Student's name

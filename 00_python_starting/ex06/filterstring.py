@@ -4,10 +4,10 @@ import ft_filter
 
 
 def main():
-    """filterstring(string, int) --> print the words longer than int
+    """Filterstring(string, int) --> print the words longer than int.
 
-Prints the words in the string that are longer than the given int.
-"""
+    Prints the words in the string that are longer than the given int.
+    """
     assert len(sys.argv) == 3, "the arguments are bad"
     try:
         input_string = sys.argv[1]

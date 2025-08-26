@@ -1,12 +1,10 @@
-
 from load_csv import load
 import pandas as pd
 import matplotlib.pyplot as plt
 
 
 def show_graph(df: pd.DataFrame | None, country: str):
-    """
-    Display a line graph of life expectancy over time for a given country.
+    """Display a line graph of life expectancy over time for a given country.
 
     Args:
         df: DataFrame with country data (first column) and years (columns)
@@ -19,7 +17,7 @@ def show_graph(df: pd.DataFrame | None, country: str):
         print("No data to display")
         return
 
-    country_row = df[df['country'] == country]
+    country_row = df[df["country"] == country]
 
     if country_row.empty:
         print(f"Country '{country}' not found in the dataset")
@@ -29,8 +27,9 @@ def show_graph(df: pd.DataFrame | None, country: str):
     life_expectancy = country_row.iloc[0, 1:].values
 
     # plt.figure(figsize=(12, 6))
-    plt.plot(years.tolist(), life_expectancy.tolist(),
-             linewidth=2, color='blue')
+    plt.plot(
+        years.tolist(), life_expectancy.tolist(), linewidth=2, color="blue"
+    )
 
     plt.title(f"{country} Life Expectancy Projections")
     plt.xlabel("Year")
@@ -40,9 +39,7 @@ def show_graph(df: pd.DataFrame | None, country: str):
 
 
 def main():
-    """
-    Load life expectancy data and display graph for United Arab Emirates.
-    """
+    """Load life expectancy data and display graph for United Arab Emirates."""
     try:
         df = load("../life_expectancy_years.csv")
         if df is not None:
