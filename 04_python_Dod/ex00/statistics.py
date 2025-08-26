@@ -68,28 +68,3 @@ def ft_statistics(*args: Any, **kwargs: Any) -> None:
     except Exception:
         for key in kwargs.values():
             print("ERROR")
-
-
-def main():
-    """Main function for testing."""
-    # Test cases from the requirements
-    ft_statistics(
-        1, 42, 360, 11, 64, toto="mean", tutu="median", tata="quartile"
-    )
-    print("-----")
-    ft_statistics(5, 75, 450, 18, 597, 27474, 48575, hello="std", world="var")
-    print("-----")
-    ft_statistics(
-        5, 75, 450, 18, 597, 27474, 48575, ejfhhe="heheh", ejdjdejn="kdekem"
-    )
-    print("-----")
-    ft_statistics(toto="mean", tutu="median", tata="quartile")
-    print("-----")
-    # Test with invalid data (string)
-    ft_statistics(
-        1, 42, 360, "a11", 64, toto="mean", tutu="median", tata="quartile"
-    )
-
-
-if __name__ == "__main__":
-    main()

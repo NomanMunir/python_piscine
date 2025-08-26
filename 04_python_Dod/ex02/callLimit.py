@@ -46,24 +46,3 @@ def callLimit(limit: int):
         return limit_function
 
     return callLimiter
-
-
-def main():
-    """Main function for testing."""
-    # Test the decorator as shown in the example
-
-    @callLimit(3)
-    def f():
-        print("f()")
-
-    @callLimit(1)
-    def g():
-        print("g()")
-
-    for i in range(3):
-        f()
-        g()
-
-
-if __name__ == "__main__":
-    main()

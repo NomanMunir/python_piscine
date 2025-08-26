@@ -29,21 +29,3 @@ class Student:
         """Generate login and id after initialization."""
         self.login = self.name.capitalize()
         self.id = generate_id()
-
-
-def main():
-    """Main function for testing."""
-    # Test the dataclass as shown in the example
-    student = Student(name="Edward", surname="agle")
-    print(student)
-
-    # Test that login and id are not initializable
-    try:
-        student2 = Student(name="Edward", surname="agle", id="toto")
-        print(student2)
-    except TypeError as e:
-        print(f"TypeError: {e}")
-
-
-if __name__ == "__main__":
-    main()
