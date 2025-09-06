@@ -27,5 +27,5 @@ class Student:
 
     def __post_init__(self):
         """Generate login and id after initialization."""
-        self.login = self.name.capitalize()
+        self.login = f"{self.name[0].upper()}{self.surname.lower()}"
         self.id = generate_id()
