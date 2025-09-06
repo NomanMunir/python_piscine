@@ -17,7 +17,6 @@ def ft_statistics(*args: Any, **kwargs: Any) -> None:
             print("ERROR")
         return
 
-    # Check if all arguments are numbers (int or float)
     for arg in args:
         if not isinstance(arg, (int, float)):
             for key in kwargs.values():

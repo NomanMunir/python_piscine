@@ -27,3 +27,6 @@ class calculator:
             return
         self.vector = [value / scalar for value in self.vector]
         print(self.vector)
+c = calculator([1, 2, 3])
+c + 3
+c * 3

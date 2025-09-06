@@ -23,7 +23,7 @@ def square(x: int | float) -> int | float:
         return result
 
     except (TypeError, OverflowError):
-        raise  # Re-raise the specific errors
+        raise
     except Exception as e:
         raise RuntimeError(f"Unexpected error in square function: {e}")
 
@@ -64,7 +64,7 @@ def pow(x: int | float) -> int | float:
         return result
 
     except (TypeError, ValueError, OverflowError):
-        raise  # Re-raise the specific errors
+        raise
     except Exception as e:
         raise RuntimeError(f"Unexpected error in pow function: {e}")
 

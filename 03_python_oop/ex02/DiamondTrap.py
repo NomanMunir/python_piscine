@@ -23,3 +23,6 @@ class King(Baratheon, Lannister):
     def get_hairs(self):
         """Get the hair color of the king."""
         return self.hairs
+
+k = King("Robert")
+print(k)

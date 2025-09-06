@@ -23,11 +23,6 @@ class Baratheon(Character):
         """Return detailed string representation of Baratheon character."""
         return f"Vector: ('{self.family_name}', '{self.eyes}', '{self.hairs}')"
 
-    @classmethod
-    def create_lannister(cls, first_name: str, is_alive: bool = True):
-        """Create a Lannister character from Baratheon class."""
-        return Lannister(first_name, is_alive)
-
 
 class Lannister(Character):
     """Representing the Lannister family."""
@@ -55,3 +50,7 @@ class Lannister(Character):
     def create_lannister(cls, first_name: str, is_alive: bool = True):
         """Create a Lannister character from Lannister class."""
         return cls(first_name, is_alive)
+
+l = Lannister.create_lannister("Tywin")
+print(l)
+print(l.__repr__())
