@@ -1,8 +1,25 @@
 [project]
 name = "python-piscine"
 version = "0.1.0"
-description = "Python modules"
+description = "A comprehensive Python learning journey through progressive modules covering fundamentals, data science, OOP, and advanced programming concepts"
 readme = "README.md"
+authors = [
+    {name = "Python Piscine Contributors"}
+]
+license = {text = "MIT"}
+keywords = ["python", "education", "programming", "data-science", "oop", "learning"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Education",
+    "Intended Audience :: Developers", 
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Education",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
 requires-python = ">=3.10"
 dependencies = [
     "autopep8>=2.3.2",
